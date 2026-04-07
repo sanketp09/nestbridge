@@ -14,6 +14,7 @@ import {
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import InviteFriendCard from '../components/InviteFriendCard'
 import PropertyCard from '../components/PropertyCard'
 import { properties } from '../data/properties'
 
@@ -181,6 +182,10 @@ export default function LandingPage() {
             Browse Properties
           </Link>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 mt-12">
+        <InviteFriendCard />
       </section>
 
       <Footer />

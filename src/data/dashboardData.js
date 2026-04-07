@@ -130,3 +130,153 @@ export const auditLogs = [
   { timestamp: '2024-12-18 13:55', user: 'legal@nbridge.in', action: 'Terms policy updated', ip: '117.197.22.130', status: 'Success' },
   { timestamp: '2024-12-18 14:17', user: 'security@nbridge.in', action: 'API token rotation', ip: '49.43.110.24', status: 'Success' }
 ]
+
+export const scmKpis = [
+  { label: 'Vendors Onboarded', value: 86, delta: '+7 this month' },
+  { label: 'Verification Queue', value: 142, delta: '-18 vs last week' },
+  { label: 'Agent SLA Compliance', value: '93.8%', delta: '+2.1%' },
+  { label: 'Avg Legal TAT', value: '31 hrs', delta: '-4 hrs' }
+]
+
+export const scmPipeline = [
+  { stage: 'Submitted', value: 1280 },
+  { stage: 'KYC Verified', value: 980 },
+  { stage: 'Listing Live', value: 742 },
+  { stage: 'Deal Closed', value: 284 }
+]
+
+export const vendorOnboarding = [
+  { vendor: 'PrimeEstates Mumbai', kyc: 'Approved', listings: 38, sla: '95%', risk: 'Low' },
+  { vendor: 'UrbanHaven Pune', kyc: 'Approved', listings: 24, sla: '92%', risk: 'Low' },
+  { vendor: 'CapitalSquare Delhi', kyc: 'Pending', listings: 16, sla: '88%', risk: 'Medium' },
+  { vendor: 'SouthBay Chennai', kyc: 'Approved', listings: 19, sla: '90%', risk: 'Low' },
+  { vendor: 'BlueBrick Bangalore', kyc: 'Under Review', listings: 11, sla: '84%', risk: 'High' }
+]
+
+export const legalTatTrend = [
+  { month: 'Aug', hours: 38 },
+  { month: 'Sep', hours: 36 },
+  { month: 'Oct', hours: 35 },
+  { month: 'Nov', hours: 33 },
+  { month: 'Dec', hours: 31 }
+]
+
+export const escrowTimeline = [
+  { milestone: 'Token Paid', avgDays: 1.1 },
+  { milestone: 'Legal Review', avgDays: 2.8 },
+  { milestone: 'Escrow Confirmation', avgDays: 1.5 },
+  { milestone: 'Registry Complete', avgDays: 3.2 },
+  { milestone: 'Settlement', avgDays: 1.4 }
+]
+
+export const crmAutomationPipeline = [
+  { stage: 'Ingestion', volume: 3847, sla: 'Real-time' },
+  { stage: 'Classification', volume: 3847, sla: '< 5 min' },
+  { stage: 'Priority Scoring', volume: 1179, sla: '< 15 min' },
+  { stage: 'Escalation', volume: 692, sla: '< 30 min' },
+  { stage: 'Fix SLA', volume: 618, sla: '< 24 hrs' },
+  { stage: 'Post-fix CSAT', volume: 588, sla: '48 hrs survey' }
+]
+
+export const crmAutomationRules = [
+  {
+    rule: 'If complaint count > 120/day in a category',
+    action: 'Auto-tag as Critical and notify Product + Ops Slack channels',
+    owner: 'CRM Ops'
+  },
+  {
+    rule: 'If payment complaints spike > 30% WoW',
+    action: 'Auto-create P1 incident and freeze high-risk payment retries',
+    owner: 'Payments Team'
+  },
+  {
+    rule: 'If agent responsiveness < 85% SLA',
+    action: 'Auto-route leads to backup agent pool and trigger coaching task',
+    owner: 'Seller Success'
+  }
+]
+
+export const crmImpactBeforeAfter = [
+  { metric: 'Avg first response time', before: '9h 42m', after: '2h 18m' },
+  { metric: 'Critical issue resolution', before: '41%', after: '86%' },
+  { metric: 'Payment timeout incidents', before: 692, after: 184 },
+  { metric: 'CSAT score', before: 81, after: 88 }
+]
+
+export const revenueTransactions = [
+  { building: 'Palm Crest Villa - Alibaug', builder: 'Palm Crest Developers', dealValue: 72000000, commissionPct: 1.8 },
+  { building: 'Luxury Sea-View Apartment - Worli', builder: 'SeaRise Infra', dealValue: 45000000, commissionPct: 1.5 },
+  { building: 'Lakefront Signature Apartment - Kondapur', builder: 'Lakefront Realty', dealValue: 31000000, commissionPct: 1.6 },
+  { building: 'Skyline Executive Apartment - Baner', builder: 'Skyline Habitat', dealValue: 23000000, commissionPct: 1.4 },
+  { building: 'Prime Retail Arcade - Banjara Hills', builder: 'RetailAxis Group', dealValue: 63000000, commissionPct: 2.1 },
+  { building: 'Sunrise Development Plot - Hinjewadi', builder: 'Sunrise Landcraft', dealValue: 15800000, commissionPct: 1.2 }
+].map((row) => {
+  const platformCommission = Math.round((row.dealValue * row.commissionPct) / 100)
+  const builderPayout = row.dealValue - platformCommission
+  return { ...row, platformCommission, builderPayout }
+})
+
+export const spotlightAdRevenue = [
+  { project: 'Worli Sky Residences', agent: 'Rahul Mehta', package: 'Homepage Spotlight - 14 days', adFee: 120000, leads: 42 },
+  { project: 'Baner Urban Heights', agent: 'Neha Kulkarni', package: 'City Spotlight - 10 days', adFee: 85000, leads: 31 },
+  { project: 'Whitefield Garden Court', agent: 'Arjun Nair', package: 'Reel Boost Bundle', adFee: 68000, leads: 29 },
+  { project: 'Kondapur Lakefront Towers', agent: 'Sana Rizvi', package: 'Premium Spotlight - 14 days', adFee: 134000, leads: 47 },
+  { project: 'Banjara Retail Arcade', agent: 'Imran Shaikh', package: 'Commercial Highlight - 21 days', adFee: 156000, leads: 38 },
+  { project: 'NIBM Hillside Estates', agent: 'Ritesh Gokhale', package: 'Weekend Blast - 7 days', adFee: 54000, leads: 22 }
+]
+
+export const revenueFeatureSplit = [
+  { stream: 'Website Transaction Commission', value: 3964600 },
+  { stream: 'Spotlight Ad Revenue', value: 617000 },
+  { stream: 'Subscription Plans', value: 795000 },
+  { stream: 'Legal Document Sales', value: 104000 },
+  { stream: 'Affiliate Services', value: 166000 }
+]
+
+export const affiliateTransactions = [
+  {
+    partner: 'HDFC Home Loans',
+    model: 'Loan Partnership',
+    customer: 'Ananya Deshpande',
+    linkedProperty: 'Luxury Sea-View Apartment - Worli',
+    transactionValue: 36000000,
+    partnerPayout: 324000,
+    nestbridgeAffiliateEarning: 90000
+  },
+  {
+    partner: 'Axis Bank Mortgage',
+    model: 'Loan Partnership',
+    customer: 'Vikram Joshi',
+    linkedProperty: 'Lakefront Signature Apartment - Kondapur',
+    transactionValue: 24800000,
+    partnerPayout: 223200,
+    nestbridgeAffiliateEarning: 62000
+  },
+  {
+    partner: 'Livspace Premium',
+    model: 'Interior Partnership',
+    customer: 'Mitali Shah',
+    linkedProperty: 'Skyline Executive Apartment - Baner',
+    transactionValue: 1850000,
+    partnerPayout: 148000,
+    nestbridgeAffiliateEarning: 9000
+  },
+  {
+    partner: 'HomeLane Elite',
+    model: 'Interior Partnership',
+    customer: 'Rohan Batra',
+    linkedProperty: 'Palm Crest Villa - Alibaug',
+    transactionValue: 4200000,
+    partnerPayout: 336000,
+    nestbridgeAffiliateEarning: 18000
+  },
+  {
+    partner: 'ICICI Housing Finance',
+    model: 'Loan Partnership',
+    customer: 'Tanvi Shah',
+    linkedProperty: 'Sunrise Development Plot - Hinjewadi',
+    transactionValue: 12200000,
+    partnerPayout: 109800,
+    nestbridgeAffiliateEarning: 30000
+  }
+]

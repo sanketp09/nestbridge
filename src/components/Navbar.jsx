@@ -44,9 +44,12 @@ export default function Navbar() {
           ))}
         </nav>
         <div className="flex items-center gap-2 sm:gap-3">
-          <button className="rounded-xl border border-border px-3 sm:px-4 py-2 text-sm text-text hover:border-gold transition">
-            Sign In
-          </button>
+          <Link
+            to="/dashboard/admin"
+            className="rounded-xl border border-border px-3 sm:px-4 py-2 text-sm text-text hover:border-gold transition"
+          >
+            Sign In as Admin
+          </Link>
           <Link
             to="/dashboard/seller"
             className="rounded-xl bg-gold px-3 sm:px-4 py-2 text-sm text-black font-semibold hover:bg-lightGold transition"

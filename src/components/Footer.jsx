@@ -37,8 +37,9 @@ export default function Footer() {
             ))}
           </div>
           <div className="mt-4 text-xs text-muted space-y-1">
-            <p><a href="#" className="hover:text-text">Privacy Policy</a></p>
-            <p><a href="#" className="hover:text-text">Terms of Service</a></p>
+            <p><Link to="/policy/privacy" className="hover:text-text">Privacy Policy</Link></p>
+            <p><Link to="/policy/terms" className="hover:text-text">Terms of Service</Link></p>
+            <p><Link to="/policy/cookie" className="hover:text-text">Cookie Policy</Link></p>
           </div>
         </div>
       </div>
